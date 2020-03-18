@@ -1,11 +1,9 @@
-Ici c'est pour si jamais on ne met pas le el dans les elements de vuejs, 
-comment faire pour prendre in element quand-même?
-$mount n'est pas une variable mais une méthode qui consiste 
-a récupéré l'élément que l'ont veut mans les parametres (ex dans le code ci-dessous)
-Avec cette methode on va pouvoir mettre en place des instances sans viser un élément,
-donc on va pouvoir faire un peu de l'asynchrone
-C'est ca qu'il faut comprendre, on va pouvoir creer après avoir installer le vue model
-Memotechnique mount pour monter sur qqch 
+Parlons de la propriété Template
+Qu'est ce qu'elle va faire?
+Elle va être le contenu de notre instances, mais le contenu du DOM
+
+
+
 
 
 
@@ -23,6 +21,8 @@ html:
         <div id="app2">
             <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
         </div>
+
+        <div id="app3"></div>
 
 
 
@@ -54,3 +54,9 @@ javaScript (vue):
                 }
             }
         }),
+
+        cont vm3= new Vue ({
+            template: "<h3>Ma template</h3>"    On fait de l'html
+        })
+
+        vm3.$mount('#app3')     du coup ca va afficher le contenu du h3
