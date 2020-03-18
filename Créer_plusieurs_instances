@@ -1,0 +1,58 @@
+/!/ une instance ne peut prendre qu'un seul élément, 
+c'est pourquoi on copie plusieurs fois le html et le js, 
+les deux ne sont pas du tout lié, un peut avoir des elements totalement différents
+C'est par ex, une copie pour une div ( ici app2 etc)
+avoir une instance par widget ou composant fait un code plus propre
+
+
+
+
+html:
+        <script
+        src="https://cdn.jsdemivr.net/npm/vue">
+        </script>
+
+        <div id="app">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+        <div id="app2">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+
+javaScript (vue):
+
+         new Vue ({   Mettre vm toujours
+            el:"#app",
+            data: {
+                title: 'les instances de vueJS'
+            },
+            methods:{
+                show: function(){
+                    console.log(this.title)
+                }
+            }
+        }),
+
+
+           new Vue ({   Mettre vm toujours
+            el:"#app2",
+            data: {
+                title: 'les instances de vueJS'
+            },
+            methods:{
+                show: function(){
+                    console.log(this.title)
+                }
+            }
+        }),
+
+
+
+
+
+
+ 

@@ -1,0 +1,45 @@
+html:
+        <script
+        src="https://cdn.jsdemivr.net/npm/vue">
+        </script>
+
+        <div id="app">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+javaScript:
+
+        const vm = new Vue ({   Mettre vm toujours
+            el:"#app",
+            data: {
+                title: 'les instances de vueJS'
+            },
+            methods:{
+                show: function(){
+                    console.log(this.title)
+                }
+            }
+        })
+
+        console.log(vm.$el)     vm.$el ça va récupéré l'element
+                                et ici dans l'element on retrouve le #app qui est en fait une div avec un titre
+
+
+        si jamais je veux récuperer les datas:
+
+        console.log(vm.$data)    du coup ici il y aura tout ce qu'il y a dans le newvue
+    
+
+        et si je veux afficher que le titre:
+        -soit on fait:
+
+        console.log(vm.$data.title)  Il affichera "les insctances de vuejs"
+
+
+        -soit on fait:
+
+        console.log(vm.title)  ça va aussi afficher le titre, et c'est plus simple d'utilisation 
+
+
+VOILA C'ETAIT DES INFORMATIONS SUR LE $el ET LE $data                      

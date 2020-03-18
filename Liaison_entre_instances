@@ -1,0 +1,52 @@
+Comme on l'a dit dans "Créer_plusieurs_instances", on ne sait pas faire de liens direct 
+Ici on va voir comment en faire.
+Pour pouvoir prendre un élément d'une autre instance, on va passer par des VARIABLES,
+Avec cette technique de variable, on peut les utiliser dans les instance, ou bien en dehors
+
+
+
+
+
+html:
+        <script
+        src="https://cdn.jsdemivr.net/npm/vue">
+        </script>
+
+        <div id="app">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+        <div id="app2">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+
+javaScript (vue):
+
+         const vm1 = new Vue ({   on creer vm1 pour prendre l'element voulu
+            el:"#app",
+            data: {
+                title: 'hello world'
+            },
+            methods:{
+                show: function(){
+                    console.log(this.title)
+                }
+            }
+        }),
+
+
+         const vm2 = new Vue ({   on creer vm2
+            el:"#app2",
+            data: {
+                title: 'les instances de vueJS'
+            },
+            methods:{
+                edit: function(){
+                    this.title = vm1.title  ET C EST COMME CA QU ON PRENDS DANS L AUTRE INSTANCE 
+                }
+            }
+        }),
+

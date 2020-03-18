@@ -1,0 +1,54 @@
+Les references:
+/!/ l'attribut ref n'existe pas en html du coup pas besoin de le bind ( avec les deux points devant ':' comme pour src par ex )
+pour avoir acces a une référence mise dans l'attribut html il suffit de mettre 
+un attribut ref et ensuite dans le js faire un $refs
+
+
+
+
+
+
+html:
+        <script
+        src="https://cdn.jsdemivr.net/npm/vue">
+        </script>
+
+        <div id="app">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+            <span ref="mySpan">Test les nuls </span>
+        </div>
+
+
+        <div id="app2">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+
+javaScript (vue):
+
+         const vm1 = new Vue ({   on creer vm1 pour prendre l'element voulu
+            el:"#app",
+            data: {
+                title: 'hello world'
+            },
+            methods:{
+                show: function(){
+                    console.log(this.title)
+                }
+            }
+        })
+        console.log(vm1.$refs)  ça va afficher ce qu'il y a dans le span (Test les nuls ici)
+
+
+         const vm2 = new Vue ({   on creer vm2
+            el:"#app2",
+            data: {
+                title: 'les instances de vueJS'
+            },
+            methods:{
+                edit: function(){
+                    this.title = vm1.title  ET C EST COMME CA QU ON PRENDS DANS L AUTRE INSTANCE 
+                }
+            }
+        }),
