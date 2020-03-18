@@ -1,0 +1,56 @@
+Ici c'est pour si jamais on ne met pas le el dans les elements de vuejs, 
+comment faire pour prendre in element quand-même?
+$mount n'est pas une variable mais une méthode qui consiste 
+a récupéré l'élément que l'ont veut mans les parametres (ex dans le code ci-dessous)
+Avec cette methode on va pouvoir mettre en place des instances sans viser un élément,
+donc on va pouvoir faire un peu de l'asynchrone
+C'est ca qu'il faut comprendre, on va pouvoir creer après avoir installer le vue model
+
+
+
+
+html:
+        <script
+        src="https://cdn.jsdemivr.net/npm/vue">
+        </script>
+
+        <div id="app">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+            <span ref="mySpan">Test les nuls </span>
+        </div>
+
+
+        <div id="app2">
+            <h1>{{title}}</h1>    Ici on a recup le data -> title dans la variable vm 
+        </div>
+
+
+
+javaScript (vue):
+
+         const vm1 = new Vue ({   on creer vm1 pour prendre l'element voulu
+            
+            data: {
+                title: 'hello world'
+            },
+            methods:{
+                show: function(){
+                    console.log(this.title)
+                }
+            }
+        })
+        vm1.$mount('#app')  Recupere la valeur de app 
+        console.log(vm1.$refs)  ça va afficher ce qu'il y a dans le span (Test les nuls ici)
+
+
+         const vm2 = new Vue ({   on creer vm2
+            el:"#app2",
+            data: {
+                title: 'les instances de vueJS'
+            },
+            methods:{
+                edit: function(){
+                    this.title = vm1.title  ET C EST COMME CA QU ON PRENDS DANS L AUTRE INSTANCE 
+                }
+            }
+        }),
