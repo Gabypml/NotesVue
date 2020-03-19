@@ -1,0 +1,22 @@
+
+
+
+
+
+html:
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    <div id="app">
+        <h1>{{ myText | filter1 | filter2}}</h1>     Comme ça qu'on met un filtre avec un " | nomdufiltre "
+    </div>
+
+
+
+JavaScript (vue):
+
+new Vue({
+    el:'#app',
+    data: {
+        myText: "DU TXT"
+    }
+})

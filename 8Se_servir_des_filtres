@@ -1,0 +1,23 @@
+Comment se servir des filtres? 
+Pour utiliser un filtre il faut mettre un pipe "|" ( sur mac: ALT + MAJ + L)
+Toujours mettre a droite du texte pour dire qu'il l'applique a gauche
+on peut imbriquer les filtre ( comme ex ici html )
+
+
+html:
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    <div id="app">
+        <h1>{{ myText | filter1 | filter2}}</h1>     Comme ça qu'on met un filtre avec un " | nomdufiltre "
+    </div>
+
+
+
+JavaScript (vue):
+
+new Vue({
+    el:'#app',
+    data: {
+        myText: "DU TXT"
+    }
+})
