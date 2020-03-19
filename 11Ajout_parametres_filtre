@@ -1,0 +1,36 @@
+Pour ajouter un paramètre dans le html on doit ouvrir les parenthèses et ajoouter le paramètre en question
+
+
+
+
+
+html:
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    <div id="app">
+        <h1>{{ myText | getWordByIndex(1) }}</h1>     Il va du coup affiché le deuxieme mot de mon titre
+    </div>
+
+
+
+JavaScript (vue):
+
+vue.filter('firstword', function(value){
+            if (!value) return ''
+            value=value.toString()
+            return value.split(' ')[0])    ça c'est un filtre global
+            }
+
+vue.filter('getWordByIndex', function(value, index){
+            if (!value) return ''
+            value=value.toString()
+            return value.split(' ')[index])   Il va prendre l'index qu'on lui a donné dans le html 
+            }
+
+
+new Vue({
+    el:'#app',
+    data: {
+        myText: "DU TXT"
+    }
+}) 
