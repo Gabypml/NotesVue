@@ -1,3 +1,9 @@
+On peut aller sur la documentation, il y a plusieurs exemples de filtres.
+Il y a deux moyen de créer un filtre, local et global
+-Locale:
+    Pour faire un filtre local c'est depuis l'instance dans laquelle on est
+    Pour faire ça on créer une propiété dans le new vue qui va s'appeler
+    filters qui sera un objet contenant des méthodes
 
 
 
@@ -7,7 +13,7 @@ html:
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     
     <div id="app">
-        <h1>{{ myText | filter1 | filter2}}</h1>     Comme ça qu'on met un filtre avec un " | nomdufiltre "
+        <h1>{{ myText | firstword }}</h1>     Comme ça qu'on met un filtre avec un " | nomdufiltre "
     </div>
 
 
@@ -18,5 +24,12 @@ new Vue({
     el:'#app',
     data: {
         myText: "DU TXT"
+    }
+    filters: {
+        firstword: function(value){
+            if (!value) return ''
+            value=value.toString()
+            return value.split(' ')[0]      Il va récupérer le premier mot de mytext
+        }
     }
 })

@@ -1,0 +1,30 @@
+Tu le mets avant le new vue avec la fonction etc comme dans le local mais en global en gros, simple
+
+
+
+
+
+html:
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    
+    <div id="app">
+        <h1>{{ myText | firstword }}</h1>     Comme ça qu'on met un filtre avec un " | nomdufiltre "
+    </div>
+
+
+
+JavaScript (vue):
+
+vue.filter('firstword', function(value){
+            if (!value) return ''
+            value=value.toString()
+            return value.split(' ')[0])    ça c'est un filtre global
+            }
+
+
+new Vue({
+    el:'#app',
+    data: {
+        myText: "DU TXT"
+    }
+}) 
